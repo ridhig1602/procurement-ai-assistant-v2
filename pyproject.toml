@@ -1,0 +1,21 @@
+[project]
+name = "customer-success-ai"
+version = "0.1.0"
+description = ""
+requires-python = ">=3.11"
+dependencies = [
+    "google-cloud-bigquery",
+    "pandas", 
+    "superlinked",
+    "db-dtypes",
+    "superlinked-server",
+    "loguru",
+    "streamlit==1.32.0",
+    "requests==2.31.0",
+    "python-dotenv==1.0.1",
+    "pandas==2.2.1",
+    "dotenv",
+    "matplotlib",
+    "pytest",
+]
+

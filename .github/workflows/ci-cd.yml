@@ -1,0 +1,43 @@
+name: CI Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+      with:
+        version: "latest"
+
+    - name: Install dependencies
+      run: |
+        uv sync
+
+    - name: Run unit tests
+      run: |
+        uv run pytest tests/ -v --tb=short
+      env:
+        PYTHONPATH: .
+        OPENAI_API_KEY: sk-test-fake-key-for-ci
+        QDRANT_API_KEY: fake-qdrant-key-for-ci
+        QDRANT_URL: https://fake-cluster.qdrant.io
+        QDRANT_COLLECTION_NAME: test-collection 
