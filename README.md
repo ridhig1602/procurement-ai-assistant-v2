@@ -244,12 +244,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Google Cloud** for hosting infrastructure
 - **Codento** for organizing the hackathon
 
-
-
-
-
----
-
-**Built with ❤️ by Amir**
-
 *Transform your procurement process from reactive to predictive with AI-powered intelligence.*
